@@ -1,0 +1,139 @@
+﻿@*
+@model SearchLocationsViewModel
+@{
+    ViewData["Title"] = "SearchLocations";
+}
+
+<h1>SearchLocations</h1>
+
+<form asp-controller="Location" asp-action="SearchLocations" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="SearchName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input asp-for="SearchDescription" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <input asp-for="SearchAddress" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Image</label>
+        <input asp-for="SearchImage" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Location Name</label>
+        <select asp-for="LocationName" asp-items="ViewBag.AllNames" class="form-control"
+                id="locationNameID">
+            <option value=""> None selected</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Location Description</label>
+        <select asp-for="LocationDescription" asp-items="ViewBag.AllDescriptions" class="form-control"
+                id="LocationDescriptionID">
+            <option value=""> None selected</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Location Address</label>
+        <select asp-for="LocationAddress" asp-items="ViewBag.AllAddresses" class="form-control"
+                id="LocationAddressID">
+            <option value=""> None selected</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn-primary btn-primary">Search Locations</button>
+</form><
+
+  @if(Model.SearchResult!=null)
+  {
+      @if(Model.SearchResult.Any())
+      {
+<table>
+    <thead>
+        <tr>LocationName</tr>
+        <tr>LocationDescription</tr>
+        <tr>Address</tr>
+    </thead>
+    <tbody>
+        @foreach(Location eachLocation in Model.SearchResult)
+        {
+        <tr>
+            <td>@eachLocation.LocationName</td>
+            <td>@eachLocation.LocationDescription</td>
+            <td>@eachLocation.Address</td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+      }
+      else
+      {
+          @("No Locations match your search criteria")
+      }
+  }
+
+  <script src="~/lib/jquery/dist/jquery.js"></script>
+  <script src="~/js/FindLocationInfojs.js"></script>
+
+  ~/images/Jacksons mill map Image.png" id="image
+*@
+
+<canvas id="JacksonsMillMap"></canvas> 
+<img src="~/images/Jacksons mill map Image.png" id="image" />
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/FindLocationInfojs.js"></script>
+
+@*
+<div id="image-container">
+    <img src="~/images/Jacksons mill map Image.png" id="image" />
+    <div id="overlay"></div>
+</div>
+<script>
+    var points = [
+        { x: 941, y: 128, detail: "Point A"},
+        { x: 1, y: 1, detail: "Point B" },
+        { x: 500, y: 600, detail: "Point C" }
+    ];
+
+
+
+    function showDetails(detail) {
+        alert(detail);
+    };
+
+    var image = document.getElementById("image");
+    image.addEventListener("click", function (event) {
+        var rect = image.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+
+        var point = points.find(function (point) {
+            return x >= point.x - 5 && x <= point.x + 5 &&
+                y >= point.y - 5 && y <= point.y + 5;
+        });
+
+        if (point) {
+            showDetails(point.detail);
+        }
+    });
+
+    var overlay = document.getElementById("overlay");
+    overlay.style.position = "absolute";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = image.width + "px";
+    overlay.style.height = image.height + "px";
+    overlay.style.opacity = "0";
+</script>
+*@

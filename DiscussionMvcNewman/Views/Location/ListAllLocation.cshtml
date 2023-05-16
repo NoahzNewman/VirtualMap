@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Location> 
+@{ViewData["Title"]= "List of all locations";}
+<h1 class="my-heading2">List of locations</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Latitude
+            </th>
+            <th>
+                Longitude
+            </th>
+            <th>
+                Show more details
+
+            </th>
+            <th>
+                Edit 
+            </th>
+            <th>
+                Delete 
+            </th>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (Location eachLocation in Model)
+        {
+            <tr>
+                <td>
+                    @eachLocation.LocationName
+                </td>
+                <td>
+                    @eachLocation.Latitude
+                </td>
+                <td>
+                    @eachLocation.Longitude
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary custom-btn" onclick="location.href='@Url.Action("LocationDetails", new { locationid = eachLocation.LocationID })'">Details</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning custom-btn" onclick="location.href='@Url.Action("EditLocation", new { locationid = eachLocation.LocationID })'">Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger custom-btn" onclick="location.href='@Url.Action("DeleteLocation", new { locationid = eachLocation.LocationID })'">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+        

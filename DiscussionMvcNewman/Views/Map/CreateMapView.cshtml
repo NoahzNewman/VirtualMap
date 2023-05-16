@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "CreateMapView";
+}
+
+
+
+<!DOCTYPE html>
+<!--
+
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+<head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC23Vg27g9d0F9Sad5YM7oO9DK-lRCF54g"></script>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+
+    <script>
+        function initMap() 
+        {
+            var locations = 
+            [
+                { lat: 39.10058, lng: -80.47119, name: "Registration/Administration Building", details: "Registration/Administration Building.", url: "jacksons-mill.html", id: 1 },
+                { lat: 39.09670, lng: -80.46671, name: "Blaker's Mill", details: "Details about Blaker's Mill.", url: "blakers-mill.html", id: 2 },
+                { lat: 39.09898, lng: -80.47245, name: "WV Building", details: "Details about WV Building.", url: "wv-building.html", id: 3 },
+                { lat: 39.09885, lng: -80.46875, name: "Assembly Hall", details: "Details about the Assembly Hall.", url: "jacksons-mill.html", id: 4 },
+                { lat: 39.09971, lng: -80.47117, name: "Mt. Vernon Dining Hall", details: "Details about Mt. Vernon Dining Hall.", url: "jacksons-mill.html", id: 5 }
+                
+            ];
+
+            var mapOptions = 
+            {
+                center: { lat: 39.097922, lng: -80.470957 },
+                zoom: 16
+            };
+
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+
+
+
+            // Initialize an empty array to store the info windows
+            var infoWindows = [];
+
+
+            // Loop through the locations array and create markers, info windows, and event listeners for each location
+            for (var i = 0; i < locations.length; i++) 
+            {
+                var location = locations[i];
+
+                // Create a marker and set its position
+                var markerIcon = 
+                {
+                    url: "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|EAAA00",
+                    size: new google.maps.Size(21, 34),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(10, 34)
+                };
+
+                var marker = new google.maps.Marker
+                ({
+                    position: { lat: location.lat, lng: location.lng },
+                    map: map,
+                    title: location.name,
+                    icon: markerIcon
+                });
+
+                // Create an info window and set its content
+                var infoWindow = new google.maps.InfoWindow
+                ({
+                        content: "<strong>" + location.name + "</strong><br>" + location.details + "<br><a href='Location/LocationDetails?locationid=" + location.id + "'>Details</a>"
+
+                });
+
+                // Add a click event listener to the marker
+                marker.addListener('click', createMarkerClickListener(infoWindow, marker, location.url));
+
+                // Push the created info window to the infoWindows array
+                infoWindows.push(infoWindow);
+            }
+
+            // Set the infoWindows array to the map object
+            map.set("infoWindows", infoWindows);
+
+            // Function to close any open info windows
+            function closeInfoWindows() 
+            {
+                var infoWindows = map.get("infoWindows");
+                if (infoWindows) {
+                    for (var i = 0; i < infoWindows.length; i++) 
+                    {
+                        infoWindows[i].close();
+                    }
+                }
+            }
+
+            function createMarkerClickListener(infoWindow, marker, url) 
+            {
+                return function () 
+                {
+                    // Close any open info windows
+                    closeInfoWindows();
+
+                    // Open the specified info window
+                    infoWindow.open(map, marker);
+
+                    // Navigate to the specified URL when the info window is clicked
+                    google.maps.event.addListener(infoWindow, 'domready', function () 
+                    {
+                        var infoWindowLink = document.getElementById('info-window-link');
+                        if (infoWindowLink) {
+                            infoWindowLink.addEventListener('click', function (event) 
+                            {
+                                event.preventDefault();
+                                window.location.href = url;
+                            });
+                        }
+                    });
+                };
+            }
+        }
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC23Vg27g9d0F9Sad5YM7oO9DK-lRCF54g&callback=initMap"></script>
+</body>
+</html>
+
+@* 
+    Longitude and Latitude need to accept more decimal places (atleast 5)
+    Need an add image upload box in add location
+    Delete image functionality
+    Coordinates are hard coded, need to connect add location
+    More details in map needs a view
+*@

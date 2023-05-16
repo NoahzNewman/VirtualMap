@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LibraryGroup13.AppUser">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGroup13.BasicUser">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="LibraryGroup13.BasicUser.UserTypeOptions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BasicUser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAACAAAAAAIAAAAAAA=</HashCode>
+      <FileName>BasicUser.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryGroup13.Admin">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Location" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryGroup13.Location">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="LibraryGroup13.Location.LocationTypeOptions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Location.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAICEAAAAAAgAIIAAAAAAACABACBAAAAAAAAAA=</HashCode>
+      <FileName>Location.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Images" />
+      <Property Name="Campus" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryGroup13.Images">
+    <Position X="9.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAABBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Images.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGroup13.ScheduleTourInPerson">
+    <Position X="13" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAAACA=</HashCode>
+      <FileName>ScheduleTour.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CreateTourTime" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LibraryGroup13.Campus">
+    <Position X="1.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACEAAAAgAAAIIAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Campus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryGroup13.CreateTourTime">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAACAAQAAAAAAAAAAAAAAAAAAQAAAAAMAAAAAAA=</HashCode>
+      <FileName>CreateTourTime.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ScheduleTourInPerson" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

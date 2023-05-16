@@ -1,0 +1,152 @@
+﻿@*<div id="image-container">
+    <img src="~/images/Jacksons mill map Image.png" id="image"/>
+    <div id="overlay"></div>
+</div>
+
+<script>
+    // Define an array of points and their corresponding details
+    var points = [
+        { x: 100, y: 200, detail: "Point A" },
+        { x: 300, y: 400, detail: "Point B" },
+        { x: 500, y: 600, detail: "Point C" }
+    ];
+
+    // Define a function to display the details of a clicked point
+    function showDetails(detail) {
+        // Display the detail in a modal or tooltip
+        // For example:
+        alert(detail);
+    }
+
+    // Capture the click event on the image
+    var image = document.getElementById("image");
+    image.addEventListener("click", function (event) {
+        // Calculate the coordinates of the click relative to the image
+        var rect = image.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+
+        // Check if the click is within the bounds of any point
+        var point = points.find(function (point) {
+            return x >= point.x - 5 && x <= point.x + 5 &&
+                y >= point.y - 5 && y <= point.y + 5;
+        });
+
+        // If a point is found, display its details
+        if (point) {
+            showDetails(point.detail);
+        }
+    });
+
+    // Create an overlay to prevent clicks outside of points
+    var overlay = document.getElementById("overlay");
+    overlay.style.position = "absolute";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = image.width + "px";
+    overlay.style.height = image.height + "px";
+    overlay.style.opacity = "0";
+</script>*@
+
+
+
+
+
+<!DOCTYPE html>
+<!--
+
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+<head>
+    <title>Place Details</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+        /**
+         * 
+         * Copyright 2019 Google LLC. All Rights Reserved.
+         * SPDX-License-Identifier: Apache-2.0
+         */
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 39.6355182, lng: -79.9595806 },
+                zoom: 15,
+            });
+            const request = {
+                placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4",
+                fields: ["name", "formatted_address", "place_id", "geometry"],
+            };
+            const infowindow = new google.maps.InfoWindow();
+            const service = new google.maps.places.PlacesService(map);
+
+            service.getDetails(request, (place, status) => {
+                if (
+                    status === google.maps.places.PlacesServiceStatus.OK &&
+                    place &&
+                    place.geometry &&
+                    place.geometry.location
+                ) {
+                    const marker = new google.maps.Marker({
+                        map,
+                        position: place.geometry.location,
+                    });
+
+                    google.maps.event.addListener(marker, "click", () => {
+                        const content = document.createElement("div");
+                        const nameElement = document.createElement("h2");
+
+                        nameElement.textContent = place.name;
+                        content.appendChild(nameElement);
+
+                        const placeIdElement = document.createElement("p");
+
+                        placeIdElement.textContent = place.place_id;
+                        content.appendChild(placeIdElement);
+
+                        const placeAddressElement = document.createElement("p");
+
+                        placeAddressElement.textContent = place.formatted_address;
+                        content.appendChild(placeAddressElement);
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+                    });
+                }
+            });
+        }
+
+        window.initMap = initMap;
+    </script>
+    <style>
+        /**
+               * 
+               * Copyright 2019 Google LLC. All Rights Reserved.
+               * SPDX-License-Identifier: Apache-2.0
+               */
+        /*
+               * Always set the map height explicitly to define the size of the div element
+               * that contains the map.
+               */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC23Vg27g9d0F9Sad5YM7oO9DK-lRCF54g&callback=initMap&libraries=places&v=weekly"
+            defer></script>
+</body>
+</html>
+

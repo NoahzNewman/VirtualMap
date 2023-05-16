@@ -1,0 +1,32 @@
+﻿@model LibraryGroup13.Location
+
+@{
+    ViewData["Title"] = "Delete Location";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div asp-validation-summary="All" class="text-danger">
+</div>
+
+<form asp-controller="Location" asp-action="DeleteLocation" method="post">
+
+    <input type="hidden" asp-for="LocationID" />
+    <div class="form-group">
+        <label asp-for="LocationName" class="control-label"></label>
+        <input asp-for="LocationName" class="form-control" readonly/>
+    </div>
+    <input type="hidden" asp-for="Longitude" />
+    <input type="hidden" asp-for="Latitude" />
+    <input type="hidden" asp-for="LocationDescription" />
+    <input type="hidden" asp-for="Image" />
+
+    <button type="submit" class="btn btn-primary" style="color: #F7F7F7; background-color: #002855;">Delete</button>
+
+    
+     <button type="button" class="btn btn-primary custom-btn" onclick="location.href='@Url.Action("ListAllLocation")'">Cancel</button>
+    
+
+
+</form>
+

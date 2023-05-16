@@ -1,0 +1,12 @@
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\bin\Debug\net6.0\DiscussionLibraryNewman.deps.json
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\bin\Debug\net6.0\DiscussionLibraryNewman.dll
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\bin\Debug\net6.0\DiscussionLibraryNewman.pdb
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.csproj.AssemblyReference.cache
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.AssemblyInfoInputs.cache
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.AssemblyInfo.cs
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.csproj.CoreCompileInputs.cache
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.dll
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\refint\DiscussionLibraryNewman.dll
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\DiscussionLibraryNewman.pdb
+C:\Users\13046\Source\Repos\Fall2022ProjectGroup13\Fall2022DiscussionSolutionNewman\DiscussionLibraryNewman\obj\Debug\net6.0\ref\DiscussionLibraryNewman.dll
